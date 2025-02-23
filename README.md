@@ -15,10 +15,8 @@ A dynamic and interactive **Calendar with a Task Planner** that allows users to 
 ## 📸 Screenshots
 
 | Calendar View | Task Planner Modal |
-|--------------|-------------------|
-| ![Calendar Screenshot](![image](https://github.com/user-attachments/assets/7d88e360-3892-41c3-8749-1efe73929d07)
-) | ![Task Planner Modal](![image](https://github.com/user-attachments/assets/9267ed4c-cc14-4da7-b1b1-151372e18727)
-) 
+| ![Calendar Screenshot](![image](https://github.com/user-attachments/assets/7d88e360-3892-41c3-8749-1efe73929d07) |
+ | ![Task Planner Modal](![image](https://github.com/user-attachments/assets/9267ed4c-cc14-4da7-b1b1-151372e18727) |
 
 ## 🛠️ Technologies Used
 
