@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yearly Roadmap Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hamburger Menu and Side Menu Styles */
+        .menu {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu-content {
+            display: none;
+            background: #eee;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 150px;
+            border: 1px solid #ccc;
+        }
+
+        .menu-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background: #ddd;
+        }
+
+        .section {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="menu-content" id="menuContent">
+            <div class="menu-item" onclick="showSection('dayPlanner')">Day Planner</div>
+            <div class="menu-item" onclick="showSection('reminder')">Set Reminder</div>
+            <div class="menu-item" onclick="showSection('timetable')">College Timetable</div>
+        </div>
+    </div>
+
+    <div class="calendar-container">
+        <h1>Yearly Roadmap Calendar</h1>
+        <div class="year-controls">
+            <button id="prevYear">Previous Year</button>
+            <span id="currentYear"></span>
+            <button id="nextYear">Next Year</button>
+        </div>
+        <div id="calendar"></div>
+    </div>
+
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <input type="text" id="taskInput" placeholder="Assign your works here.">
+            <button id="addTask">Add Task</button>
+            <div id="taskList"></div>
+            <p id="successMessage" style="color: green; display: none;">Successfully assigned</p>
+        </div>
+    </div>
+
+    <div id="dayPlanner" class="section">
+        <h2>Day Planner</h2>
+        <p><strong>Morning (6:00 AM - 9:00 AM):</strong></p>
+        <ul>
+            <li>6:00 AM - 6:30 AM: Wake up, light exercise, and hydrate.</li>
+            <li>6:30 AM - 7:00 AM: Review the day's schedule, prioritize study tasks, and check online learning platforms.</li>
+            <li>7:00 AM - 7:30 AM: Breakfast and review class notes or readings.</li>
+            <li>7:30 AM - 9:00 AM: Focused study session. Tackle a difficult assignment or review key concepts.</li>
+        </ul>
+        <p><strong>Daytime (9:00 AM - 6:00 PM):</strong></p>
+        <ul>
+            <li>9:00 AM - 12:00 PM: Attend lectures, labs, or tutorials.</li>
+            <li>12:00 PM - 1:00 PM: Lunch break. Socialize with classmates or relax.</li>
+            <li>1:00 PM - 3:00 PM: Study group sessions, library research, or coding practice.</li>
+            <li>3:00 PM - 5:00 PM: Work on assignments, projects, or lab reports.</li>
+            <li>5:00 PM - 6:00 PM: Review daily learning, plan for upcoming assignments, or prepare for the next day's classes.</li>
+        </ul>
+        <p><strong>Evening (6:00 PM - 10:00 PM):</strong></p>
+        <ul>
+            <li>6:00 PM - 7:00 PM: Dinner and relaxation.</li>
+            <li>7:00 PM - 8:30 PM: Personal projects, coding practice, or online courses.</li>
+            <li>8:30 PM - 9:30 PM: Review notes, prepare for quizzes or exams.</li>
+            <li>9:30 PM - 10:00 PM: Wind down, read, or prepare for sleep.</li>
+        </ul>
+    </div>
+
+    <div id="reminder" class="section">
+        <h2>Set Reminder (Pending Works)</h2>
+        <p>You have the following pending tasks:</p>
+        <ul>
+            <li>Complete assignment for ML-RS.</li>
+            <li>Prepare for DBMS-VCR quiz.</li>
+            <li>Review notes for OT-STH.</li>
+        </ul>
+    </div>
+
+    <div id="timetable" class="section">
+        <h2>College Timetable</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>DAY</th>
+                    <th>9:30-10:20</th>
+                    <th>10:20-11:10</th>
+                    <th>11:10-12:00</th>
+                    <th>12:00-12:50</th>
+                    <th>1:50-2:40</th>
+                    <th>2:40-03:30</th>
+                    <th>03:30-4:10</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MON</td>
+                    <td></td>
+                    <td>2-AI-FSD-F-KRR/TS-Lab 10</td>
+                    <td></td>
+                    <td></td>
+                    <td>ML-RS</td>
+                    <td>OT-STH</td>
+                    <td>ML-RS</td>
+                </tr>
+                <tr>
+                    <td>TUE</td>
+                    <td>ML-RS</td>
+                    <td>OT-STH</td>
+                    <td>Couns(KRS/STH)</td>
+                    <td>DBMS-VCR</td>
+                    <td></td>
+                    <td>2-AI-ML-LAB-F-KRS/KM Lab 9</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>WED</td>
+                    <td>DBMS-VCR</td>
+                    <td></td>
+                    <td>2-AI-DBMS-F-VCR/TS Lab 9</td>
+                    <td></td>
+                    <td>DLCO-KM</td>
+                    <td>P&S-KDB</td>
+                    <td>DLCO-KM</td>
+                </tr>
+                <tr>
+                    <td>THU</td>
+                    <td>DLCO-KM</td>
+                    <td>ML-RS</td>
+                    <td>OT-STH</td>
+                    <td>DTI-PGR</td>
+                    <td>P&S-KDB</td>
+                    <td>P&S-KDB</td>
+                    <td>DLCO-KM</td>
+                </tr>
+                <tr>
+                    <td>FRI</td>
+                    <td>P&S-KDB</td>
+                    <td>DTI-PGR</td>
+                    <td>ML-RS</td>
+                    <td>DTI-PGR</td>
+                    <td>OT-STH</td>
+                    <td>DBMS-VCR</td>
+                    <td>DBMS-VCR</td>
+                </tr>
+                <tr>
+                    <td>SAT</td>
+                    <td>DBMS-VCR</td>
+                    <td>P&S-KDB</td>
+                    <td>ML-RS</td>
+                    <td>DLCO-KM</td>
+                    <td>DTI-PGR</td>
+                    <td>DBMS-VCR</td>
+                    <td>OT-STH</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menuContent');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        function showSection(sectionId) {
+            var sections = document.getElementsByClassName('section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+            document.getElementById(sectionId).style.display = 'block';
+            document.getElementById('menuContent').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

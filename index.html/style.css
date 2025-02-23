@@ -1,0 +1,266 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    color: #ff0000;
+}
+
+.calendar-container {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.year-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: rgb(0, 255, 102);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.month {
+    background: #64d2ba;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.month-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day {
+    padding: 10px;
+    background: #f0f0f0;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.day.completed {
+    background: #00db07;
+}
+
+.day:hover {
+    background: #d1d1d1;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-content {
+    display: none;
+    background: #2bdccd;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 150px;
+    border: 1px solid #b3ff00;
+    z-index: 10;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.task-controls {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.section {
+    display: none;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#taskInput {
+    padding: 10px;
+    width: calc(100% - 22px);
+    border: 1px solid #d8ea3a;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#taskList {
+    margin-top: 10px;
+}
+
+#taskList li {
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+#taskList li:hover {
+    background: #d9ff00;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-item.completed-task {
+    text-decoration: line-through;
+    color: #00ff1a;
+}
+
+.success-message {
+    color: rgb(255, 3, 3);
+    display: none;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Hamburger Menu and Side Menu Styles */
+.menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.hamburger {
+    font-size: 24px;
+    cursor: pointer;
+}
+.show {
+    display: block !important;
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.back-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+
+.menu-content {
+    display: none;
+    background: #eee;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 150px;
+    border: 1px solid #ccc;
+}
+
+.menu-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+}
