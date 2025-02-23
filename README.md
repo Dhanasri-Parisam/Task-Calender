@@ -39,6 +39,52 @@ Simply open the `index.html` file in a browser to start using the calendar.
 ### 3️⃣ Customize
 Modify the CSS styles in `styles.css` or enhance the JavaScript logic in `script.js` to fit your needs.
 
+🔍 Functionality Breakdown
+
+📅 Yearly Calendar Navigation
+
+Users can navigate between different years using arrow buttons.
+
+The current year is highlighted to indicate the active selection.
+
+✅ Task Management for Each Day
+
+Clicking on any date opens a task planner modal.
+
+Users can add tasks, mark tasks as completed, or remove tasks.
+
+Completed tasks are visually distinguished from pending ones.
+
+💾 Local Storage Integration
+
+All tasks are stored using local storage, ensuring data persistence.
+
+Even after refreshing the page or closing the browser, the tasks remain saved.
+
+🎨 Modern UI with Responsive Design
+
+Designed with a clean and minimalistic interface.
+
+Works seamlessly across various screen sizes, including desktops, tablets, and mobile devices.
+
+📱 Mobile-Friendly Hamburger Menu
+
+A responsive navigation menu optimized for mobile users.
+
+Allows quick access to key features of the planner.
+
+🎭 Full-Screen Sections for Different Views
+
+Users can switch between different views such as monthly, weekly, or daily task views.
+
+The UI provides a seamless transition between sections.
+
+🎯 Task Completion Indicator
+
+Days with completed tasks are visually highlighted.
+
+A progress indicator helps users track their pending vs. completed tasks.
+
 ## 🔧 Future Enhancements
 
 - 📌 **Drag-and-drop Task Reordering**
